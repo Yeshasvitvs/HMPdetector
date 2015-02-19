@@ -1,0 +1,10 @@
+Climb 5 11 7
+GetUp 5 10 8
+PickUpDrink 5 9 5
+PickUpPour 5 6 5
+PutDownDrink 5 8 7
+PutDownPour 5 4 4
+Sit 3 7 7
+Stand 5 6 6
+Walk 4 10 8
+

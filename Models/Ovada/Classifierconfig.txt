@@ -1,0 +1,10 @@
+9
+Climb 0.5 0.5 41.2
+GetUp 0.5 0.5 137.5
+PickUpDrink 0.5 0.5 85.8
+PickUpPour 0.5 0.5 88
+PutDownDrink 0.5 0.5 137.8
+PutDownPour 0.5 0.5 75
+Sit 0.5 0.5 150.8
+Stand 0.5 0.5 150.8
+Walk 0.5 0.5 60.5

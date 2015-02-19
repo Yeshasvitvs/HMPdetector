@@ -1,0 +1,34 @@
+<launch>
+
+<!--HMPdetector node : Online Classification-->
+<node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-i /dev/ttyUSB0">
+</node>
+
+
+</launch>
+
+
+
+<!--Launch File Examples-->
+
+<!--HMPdetector node : Help Documentation-->
+<!--node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-h">
+</node-->
+
+<!--HMPdetector node : Modelling -->
+<!--node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-m Letters">
+</node-->
+
+<!--HMPdetector node : Loading a Dataset-->
+<!--node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-L Letters">
+</node-->
+
+<!--HMPdetector node : Off-line Validation, Here change [HMP] to the model like Letter 'A' or HMP 'Climb'-->
+<!--node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-v A Letters 10">
+</node-->
+
+<!--HMPdetector node : Online Classification-->
+<!--node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-c /dev/ttyUSB0">
+</node-->
+
+

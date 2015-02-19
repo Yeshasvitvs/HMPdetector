@@ -1,0 +1,17 @@
+8
+Climb 0.5 0.5 60.0
+PickUpDrink 0.5 0.5 150
+PickUpPour 0.5 0.5 100
+PutDownDrink 0.5 0.5 137.8
+PutDownPour 0.5 0.5 75
+Sit 0.5 0.5 150.8
+Stand 0.5 0.5 150.8
+Walk 0.5 0.5 60.5
+
+// models - Orebro
+	MODELS[2].build("PutDownDrink", 0.5, 0.5, 150);	//DEBUG: cout<<"2-";
+	MODELS[3].build("PickUpPour", 0.5, 0.5, 100);	//DEBUG: cout<<"3-";
+	MODELS[4].build("PutDownPour", 0.5, 0.5, 100);	//DEBUG: cout<<"4-";
+	MODELS[5].build("Sit", 0.5, 0.5, 150);		//DEBUG: cout<<"5-";
+	MODELS[6].build("Stand", 0.5, 0.5, 300);	//DEBUG: cout<<"6-";
+	MODELS[7].build("Walk", 0.5, 0.5, 60);

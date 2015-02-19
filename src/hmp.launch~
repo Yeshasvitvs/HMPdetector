@@ -1,0 +1,9 @@
+<launch>
+
+<!--HMPdetector node-->
+<node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" >
+</node>
+
+
+
+</launch>
