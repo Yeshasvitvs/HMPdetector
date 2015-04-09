@@ -18,6 +18,14 @@ using namespace boost::posix_time;
 int p1; 
 int p2; 
 int p3;
+double possibility_diff1=0;
+double possibility_diff2=0;
+double possibility_diff3=0;
+
+double temp1=0;//New Code
+double temp2=0;//New Code
+double temp3=0;//New Code
+
 
 //! constructor with variables initialization
 //! @param HMPn:	name of the motion primitive (within the dataset)
@@ -323,8 +331,8 @@ float Classifier::compareOne(mat &Tgravity, mat &Tbody, DYmodel &MODEL)
 //! @return:				---
 void Classifier::compareAll(mat &gravity,mat &body, vector<float> &possibilities)
 {
+	
 	float distance[nbM];
-	//float temp=0;//New Code
 
 	// compare the features of the trial with those of each model
 	for(int i = 0; i < nbM; i++)
@@ -337,13 +345,33 @@ void Classifier::compareAll(mat &gravity,mat &body, vector<float> &possibilities
 		//if (possibilities[i] < 0)
 		//	possibilities[i] = 0;
 
+		
 		//New Code for Univocal output
-		if (possibilities[i] > 0.7){
+		if (possibilities[i] > 0.55){
 
-			possibilities[i] = 1;
-			if(i==0){ p1++;} //Store the value '1' in the arrays
-			if(i==1){ p2++;}
-			if(i==2){ p3++;}
+			//possibilities[i] = 1;//Store the value '1' in the arrays
+
+			if(i==0)
+			{ 
+				p1++;
+				possibility_diff1 = possibilities[i] - temp1; 
+				std::cout<<"A: "<<possibilities[i]<<std::endl;
+				temp1 = possibilities[i];				 
+			} 
+			if(i==1)
+			{
+				 p2++; 
+				 possibility_diff2 = possibilities[i] - temp2;
+				 std::cout<<"B: "<<possibilities[i]<<std::endl;
+				 temp2 = possibilities[i];
+			}
+			if(i==2)
+			{ 
+				p3++;
+				possibility_diff3 = possibilities[i] - temp3;
+				std::cout<<"C: "<<possibilities[i]<<std::endl;
+				temp3 = possibilities[i];	
+			}
 		}
 		else
 			possibilities[i] = 0;
@@ -635,6 +663,7 @@ void Classifier::onlineTest(char* port)
 	SerialStream serial(options);
 	serial.exceptions(ios::badbit | ios::failbit);
 	
+	
 	// classify the stream of raw acceleration & gyroscope data
 	while(1)
 	{
@@ -656,26 +685,36 @@ void Classifier::onlineTest(char* port)
 				analyzeWindow(window, gravity, body);
 				compareAll(gravity, body, possibilities);
 				if(motion == "Still") { p1 = 0; p2 = 0; p3 = 0; cout<<"Reset"<<endl;}
-				
+				std::cout << "P1 P2 P3 : " << p1 <<p2<<p3 <<std::endl;//Debug code 
 				int alpha = std::max(std::max(p1,p2),p3);
-				if(alpha == 0) {cout<<"Keep calm and perform gesture"<<endl; 
+				if(alpha == 0) {//cout<<"Keep calm and perform gesture"<<endl; 
 						/*signalFile << "Keep calm and perform gesture"<<endl;*/}
-				else if(alpha == p1) 
+				else if(alpha == p1 && possibility_diff1 <0) 
 				{
 					cout<<"A"<<endl;
 					gesture_receive('A');
+					nSamples = 0;
 					p1=0;
+					p2=0;
+					p3=0;
+					
      				}
-				else if(alpha == p2)
+				else if(alpha == p2 && possibility_diff2 <0)
 				{
 					cout<<"B"<<endl;
 					gesture_receive('B');
+					nSamples = 0;
+					p1=0;
 					p2=0;
+					p3=0;
 				}
-				else if(alpha == p3) 
+				else if(alpha == p3 && possibility_diff3 <0) 
 				{
 					cout<<"C"<<endl;
 					gesture_receive('C');
+					nSamples = 0;
+					p1=0;
+					p2=0;
 					p3=0;
 				}
 					

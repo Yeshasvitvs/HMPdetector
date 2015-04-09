@@ -1,7 +1,7 @@
 <launch>
 
 <!--HMPdetector node : Online Classification-->
-<node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-i /dev/ttyUSB0">
+<node pkg="HMPdetector" type="HMPdetector" name="HMP" output="screen" args="-c /dev/ttyUSB0">
 </node>
 
 
