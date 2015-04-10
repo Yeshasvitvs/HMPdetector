@@ -685,7 +685,7 @@ void Classifier::onlineTest(char* port)
 				analyzeWindow(window, gravity, body);
 				compareAll(gravity, body, possibilities);
 				if(motion == "Still") { p1 = 0; p2 = 0; p3 = 0; cout<<"Reset"<<endl;}
-				std::cout << "P1 P2 P3 : " << p1 <<p2<<p3 <<std::endl;//Debug code 
+				//std::cout << "P1 P2 P3 : " << p1 <<p2<<p3 <<std::endl;//Debug code 
 				int alpha = std::max(std::max(p1,p2),p3);
 				if(alpha == 0) {//cout<<"Keep calm and perform gesture"<<endl; 
 						/*signalFile << "Keep calm and perform gesture"<<endl;*/}
