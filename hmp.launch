@@ -1,3 +1,11 @@
+//===============================================================================//
+// Name			: hmp.launch
+// Author(s)	: Yeshasvi TVS
+// Affiliation	: University of Genova, Italy - dept. DIBRIS
+// Version		: 1.0
+// Description	: ROS Launch file for HMPdetector ROS package
+//===============================================================================//
+
 <launch>
 
 <!--HMPdetector node : Online Classification-->
