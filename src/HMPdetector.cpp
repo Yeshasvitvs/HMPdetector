@@ -1,9 +1,9 @@
 //===============================================================================//
 // Name			: HMPdetector.cpp
-// Author(s)	: Barbara Bruno
+// Author(s)	: Barbara Bruno & Yeshasvi TVS
 // Affiliation	: University of Genova, Italy - dept. DIBRIS
 // Version		: 1.1
-// Description	: Human Motion Primitives and Fall detection system
+// Description	: HMPdetector ROS node
 //===============================================================================//
 
 #include <getopt.h>
